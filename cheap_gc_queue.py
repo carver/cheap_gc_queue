@@ -40,6 +40,8 @@ class Q(object):
 
 def test():
     q = Q()
+
+    #basic add/remove repeated
     for _ in range(5):
         assert q.len == 0
         q.q(1)
@@ -49,6 +51,7 @@ def test():
         assert q.dq() == 1
         assert q.len == 0
 
+    #check two in a row
     for i in range(2):
         q.q(i)
 
@@ -56,6 +59,7 @@ def test():
     assert q.dq() == 0
     assert q.dq() == 1
 
+    #try longer sequences
     for i in range(10):
         q.q(i)
 
@@ -68,6 +72,7 @@ def test():
         last_dq = q.dq()
     assert last_insert == last_dq, "%s found instead of %s" % (last_dq, last_insert)
 
+    #this one's just to play with in the console
     for i in range(10):
         q.q(i)
 
